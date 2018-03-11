@@ -82,7 +82,16 @@ def parse_file( fname, edges, transform, screen, color ):
             else:
                 t = make_rotZ(theta)
             matrix_mult(t, transform)
-                
+
+        elif line == 'circle':
+            pass
+            
+        elif line == 'hermite':
+            pass
+            
+        elif line == 'bezier':
+            pass
+            
         elif line == 'ident':
             ident(transform)
 
