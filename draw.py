@@ -8,9 +8,9 @@ def add_circle( points, cx, cy, cz, r, step ):
         x = r * math.cos(2 * math.pi * t / step) + cx
         y = r * math.sin(2 * math.pi * t / step) + cy
         z = cz
-        if t != 0 or t != step:
+        if t != 0 and t != step:
             add_point( points, x, y, z)
-        add_point( points, x, y, z)
+        add_point(points, x, y, z)
         t += 1
 
 def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
@@ -18,23 +18,22 @@ def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
     x = generate_curve_coefs(x0,x1,x2,x3, curve_type)
     y = generate_curve_coefs(y0,y1,y2,y3, curve_type)
     ax = x[0][0]
-    bx = x[1][0]
-    cx = x[2][0]
-    dx = x[3][0]
+    bx = x[0][1]
+    cx = x[0][2]
+    dx = x[0][3]
     ay = y[0][0]
-    by = y[1][0]
-    cy = y[2][0]
-    dy = y[3][0]
+    by = y[0][1]
+    cy = y[0][2]
+    dy = y[0][3]
     while (t <= step):
-        time = t / step
+        time = float(t)/ step
         x = ax * math.pow(time, 3) + bx * math.pow(time, 2) + cx * time + dx
         y = ay * math.pow(time, 3) + by * math.pow(time, 2) + cy * time + dy
         z = 0
-        if t != 0 or t != step:
-            add_point( points, x, y, z)
+        if t != 0 and t != step:
+            add_point(points,x,y,z)
         add_point(points, x, y, z)
-
-
+        t += 1
 
 def draw_lines( matrix, screen, color ):
     if len(matrix) < 2:

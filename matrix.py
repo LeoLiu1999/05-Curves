@@ -18,15 +18,22 @@ def make_hermite():
 
 def generate_curve_coefs( p1, p2, p3, p4, t ):
     if t == "hermite":
-        mat1 = make_hermite
+        mat1 = make_hermite()
     elif (t =="bezier"):
         mat1 = make_bezier()
     else:
         print "nice try, but nah fam"
         mat1 = new_matrix()
         mat1 = ident(mat1)
-    mat2  [[p1],[p2],[p3],[p4]]
-    return matrix_mult(mat1, mat2)
+    mat2 = [[p1,p2,p3,p4]]
+    print "mat1"
+    print_matrix(mat1)
+    print "mat2"
+    print_matrix(mat2)
+    print "curve coefs"
+    matrix_mult(mat1, mat2)
+    print_matrix(mat2)
+    return mat2
 
 def make_translate( x, y, z ):
     t = new_matrix()
