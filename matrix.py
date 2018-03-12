@@ -17,9 +17,9 @@ def make_hermite():
     return t
 
 def generate_curve_coefs( p1, p2, p3, p4, t ):
-    if (t == "hermite"):
+    if t == "hermite":
         mat1 = make_hermite
-    else if (t =="bezier"):
+    elif (t =="bezier"):
         mat1 = make_bezier()
     else:
         print "nice try, but nah fam"
