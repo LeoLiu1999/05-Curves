@@ -10,29 +10,19 @@ def make_bezier():
 
 def make_hermite():
     t = []
-    t.append([2,-2,1,1])
-    t.append([-3,3,-2,-1])
-    t.append([0,0,1,0])
-    t.append([1,0,0,0])
+    t.append([2,-3,0,1])
+    t.append([-2,3,0,0])
+    t.append([1,-2,1,0])
+    t.append([1,-1,0,0])
     return t
 
 def generate_curve_coefs( p1, p2, p3, p4, t ):
-    if t == "hermite":
+    if (t == "hermite"):
         mat1 = make_hermite()
     elif (t =="bezier"):
         mat1 = make_bezier()
-    else:
-        print "nice try, but nah fam"
-        mat1 = new_matrix()
-        mat1 = ident(mat1)
     mat2 = [[p1,p2,p3,p4]]
-    print "mat1"
-    print_matrix(mat1)
-    print "mat2"
-    print_matrix(mat2)
-    print "curve coefs"
     matrix_mult(mat1, mat2)
-    print_matrix(mat2)
     return mat2
 
 def make_translate( x, y, z ):
